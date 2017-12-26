@@ -2,17 +2,20 @@ import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 
 export function configure(aurelia: Aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .feature('resources');
+	aurelia.use
+		.standardConfiguration()
+		.feature('resources');
 
-  if (environment.debug) {
-    aurelia.use.developmentLogging();
-  }
+	aurelia.use.plugin("aurelia-files");
+	aurelia.use.plugin('aurelia-materialize-bridge', b => b.useAll());
 
-  if (environment.testing) {
-    aurelia.use.plugin('aurelia-testing');
-  }
+	if (environment.debug) {
+		aurelia.use.developmentLogging();
+	}
 
-  aurelia.start().then(() => aurelia.setRoot());
+	if (environment.testing) {
+		aurelia.use.plugin('aurelia-testing');
+	}
+
+	aurelia.start().then(() => aurelia.setRoot());
 }

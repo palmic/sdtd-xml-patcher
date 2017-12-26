@@ -1,5 +1,5 @@
 {
-  "name": "sdtd-xml-patcher",
+  "name": "sdtd-server-configurator-frontend",
   "type": "project:application",
   "bundler": {
     "id": "cli",
@@ -65,8 +65,9 @@
           "aurelia-templating-binding",
           {
             "name": "aurelia-templating-resources",
+            "main": "aurelia-templating-resources",
             "path": "../node_modules/aurelia-templating-resources/dist/amd",
-            "main": "aurelia-templating-resources"
+            "resources": []
           },
           {
             "name": "aurelia-templating-router",
@@ -79,7 +80,66 @@
             "main": "aurelia-testing",
             "env": "dev"
           },
-          "text"
+          "text",
+          {
+            "name": "aurelia-files",
+            "path": "../node_modules/aurelia-files/dist/amd",
+            "main": "index",
+            "resources": [
+              "attributes/files-attribute.js"
+            ]
+          },
+          {
+            "name": "xmldom",
+            "main": "./dom-parser",
+            "path": "../node_modules/xmldom",
+            "resources": []
+          },
+          "jquery",
+          "lodash",
+          {
+            "name": "materialize-css",
+            "path": "../node_modules/materialize-css/dist",
+            "main": "js/materialize.amd",
+            "deps": [
+              "jquery"
+            ],
+            "resources": [
+              "css/materialize.css"
+            ],
+            "exports": "Materialize"
+          },
+          {
+            "name": "aurelia-materialize-bridge",
+            "path": "../node_modules/aurelia-materialize-bridge/dist/amd",
+            "main": "index",
+            "deps": [
+              "jquery"
+            ],
+            "resources": [
+              "**/*.{css,html}",
+              "index.js"
+            ]
+          },
+          {
+            "name": "aurelia-validation",
+            "path": "../node_modules/aurelia-validation/dist/amd",
+            "main": "aurelia-validation"
+          },
+          {
+            "name": "nprogress",
+            "path": "../node_modules/nprogress",
+            "main": "nprogress",
+            "resources": [
+              "nprogress.css"
+            ]
+          },
+          {
+            "name": "file-saver",
+            "path": "../node_modules/file-saver",
+            "main": "FileSaver",
+            "resources": []
+          }
         ]
       }
     ],
@@ -94,7 +154,7 @@
             ".html",
             ".css"
           ],
-          "stub": true
+          "stub": false
         }
       ]
     }
