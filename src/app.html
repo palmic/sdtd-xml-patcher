@@ -1,3 +1,17 @@
 <template>
-  <h1>${message}</h1>
+	<loading-indicator loading.bind="loading"></loading-indicator>
+	<div class="container">
+		<div class="row">
+			<div class="s1" if.bind="!isFileSaverSupported">
+				<div class="col s12 red white-text">File saving feature is not supported on your browser, you'll be not
+					able to export file back!<br>
+					Check <a target="_blank" href="https://github.com/eligrey/FileSaver.js#supported-browsers">Supported
+						Browsers</a>.
+				</div>
+			</div>
+			<div class="s12" if.bind="isFileSaverSupported">
+				<compose view-model="./resources/compose/original"></compose>
+			</div>
+		</div>
+	</div>
 </template>

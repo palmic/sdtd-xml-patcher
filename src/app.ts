@@ -1,3 +1,11 @@
 export class App {
-  message = 'Hello World!';
+	loading: boolean = false;
+	isFileSaverSupported: boolean;
+
+	constructor() {
+		try {
+			this.isFileSaverSupported = !!new Blob;
+		} catch (e) {}
+	}
+
 }
